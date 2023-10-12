@@ -1,0 +1,8 @@
+@charset "UTF-8";
+@import "main.css";
+
+h1 {
+	font-size: 24px;
+	color: #06F;
+	font-family: '돋움';
+}
