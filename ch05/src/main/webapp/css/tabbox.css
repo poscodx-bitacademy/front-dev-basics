@@ -1,0 +1,43 @@
+*		{ margin:0; padding:0 }
+ul, ol, dl { list-style-type: none;}
+body	{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
+
+.tab-box {
+	width: 520px;
+	margin: 100px auto;
+}
+
+.tab-box ul {
+	width: 520px;
+	height: 24px;
+}
+
+.tab-box li {
+	float: left;
+	width: 100px;
+	height: 22px;
+	border: 1px solid #999;
+	margin-left: 2px;
+	text-align: center;
+	line-height: 22px;
+	border-radius: 10px 10px 0 0;
+	background-color: #ccc;
+	cursor: pointer;
+}
+
+.tab-box li.selected {
+	background-color: #fc6	
+}
+
+.tab-box ul li:first-child {
+	margin-left: 0;
+}
+
+.tab-box div {
+	width: 516px;
+	height: 200px;
+	border: 1px solid #999;
+	margin-top: -1px;
+	text-align: center;
+	line-height: 200px;
+} 
