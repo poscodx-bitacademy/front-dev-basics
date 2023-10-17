@@ -40,6 +40,8 @@ console.log(b2 + ":" + typeof(b2) + ":" + (b2 instanceof(Boolean)));
 console.log(o + ":" + typeof(o) + ":" + (o instanceof(Object)));
 console.log(a + ":" + typeof(a) + ":" + (a instanceof(Array)));
 console.log(d + ":" + typeof(d) + ":" + (d instanceof(Date)));
+console.log(a + ":" + typeof(a) + ":" + (a instanceof(Array)));
+console.log(d + ":" + typeof(d) + ":" + (d instanceof(Date)));
 
 console.log("=== 객체타입(function) ======");
 
