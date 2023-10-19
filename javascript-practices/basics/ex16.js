@@ -38,6 +38,33 @@ var r = (function(a, b) {
 console.log(r);
 
 // 가변 파라미터
+var sum = function() {
+    console.log(arguments instanceof Array, arguments instanceof Object, arguments.length);
+    
+    var sum = 0;
+
+    // for(var i = 0; i < arguments.length; i++) {
+    //     sum += arguments[i];
+    // }
+
+    // error: 유사배열
+    // arguments의 __proto__는 Object.prototype에 chain이 되어 있기 때문에 forEach를 호출할 수 없다. (arguments는 Object 인스턴스다.)
+    // arguments.forEach(function(e) {
+    //    sum += e;
+    // })
+
+    Array.prototype.forEach.call(arguments, function(e){
+        sum += e;
+    });
+
+    return sum;
+};
+
+
+console.log(sum(10));
+console.log(sum(10, 20));
+console.log(sum(10, 20, 30, 40));
+console.log(sum(10, 20, 30, 40, 50, 60, 70, 80, 90, 100));
 
 
 

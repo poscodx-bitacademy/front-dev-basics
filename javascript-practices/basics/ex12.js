@@ -31,7 +31,10 @@ Array.prototype.insert = function(index, value) {
         // console.log(this);
         var f = function(e){
            this.splice(index++, 0, e);
-        }.bind(this);
+        };
+
+        f = f.bind(this);
+
 
         value.forEach(f);  
     } else {
