@@ -8,5 +8,24 @@
 	<h1>BOM(Browser Object Model)</h1>
 	<h2>3. localtion 객체</h2>
 	<h3>Refresh Page 하는 방법</h3>
+	
+	<!-- 방법1: f5, cached -->
+	<button onclick='location = location'>refresh01</button>
+	
+	<!-- 방법2: f5, cached -->
+	<button onclick='location.href = location.href;'>refresh02</button>
+	
+	<!-- 방법3: f5, cached -->
+	<button onclick="location.assign('');">refresh03</button>
+
+	<!-- 방법4: f5, cached -->
+	<button onclick="location.replace(location)">refresh04</button>
+	
+	<!-- 방법5: ctrl+f5, no-cached -->
+	<button onclick="location.reload();">refresh05</button>
+
+	<!-- redirect 하기 -->
+	<button onclick='location.href = "https://www.poscodx.com";'>우리회사로~</button>
+		
 </body>
 </html>

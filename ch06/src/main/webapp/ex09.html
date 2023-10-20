@@ -3,6 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+window.onload = function() {
+	setTimeout(function(){
+		var imgElement = document.createElement("img");
+
+		// getAtrribute/setAttribute
+		// 표준 속성: 사용가능, 이름으로 가능하다.
+		// 비표준 속성: 사용가능, 이름으로 불가능하다.
+		imgElement.setAttribute('src', 'https://i.ytimg.com/vi/mkjvhMAIqsY/mqdefault.jpg');
+		imgElement.setAttribute('style', 'width: 100px');
+		imgElement.setAttribute('alt', '루피만세~');
+		imgElement.setAttribute('title', '루피만세~');
+
+		// imgElement.no = 10; 안됨
+		// 비표준 속성을 사용할 때는 'data-' prefix를 달아준다.
+		// imgElement.setAttribute('data-no', 10);
+		imgElement.setAttribute('no', 10);
+		
+		// 비표준 속성은 이름으로 접근할 수 없다.
+		console.log(imgElement.no, imgElement.getAttribute("no"), imgElement.alt);
+		
+		document.body.appendChild(imgElement);
+	}, 2000);
+}
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>

@@ -1,4 +1,7 @@
 var BrowserDetect = {
+		browser: null,
+		version: null,
+		OS: null,
 		init: function () {
 			this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
 			this.version = this.searchVersion(navigator.userAgent)
