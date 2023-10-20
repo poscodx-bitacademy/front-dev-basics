@@ -20,7 +20,22 @@
  	2) DOM Event Model Level2 	   
 
 4.	DOM Event Model
-
+	1)	DOM HTML Element의 Event Handler를 설정하는 방법에 대한 표준
+	2)	DOM Event Model Lv.0
+		1.	basic
+			-	고전적인 이벤트 처리 방식(기본 이벤트 처리 방식)
+			-	element.onclick = function() { ... }
+			-	문제점은 이벤트 핸들러를 하나만 등록 시킬 수 있다.
+			
+		2.	inline
+			-	태그 안에 event attribute(이벤트 속성)에 자바스크립트 코드를 설정
+			-	<h1 onclick="js codes...">
+		    -	웹표준 위배	
+		    	  
+	3)	DOM Event Model Lv.2
+		1)	Observer 패턴을 적용해서 Listener(함수, 이벤트 핸들러)등록하는 방식
+		2)  여러 이벤트 핸들러를 등록 할 수 있다.
+		3)	HTMLElement 객체가 이벤트 핸들러를 등록할 수 있는 함수(DOM API)를 제공해야 한다. 			
        
 [DOM Event 종류]
 1.	마우스
@@ -37,16 +52,40 @@
 4. input
 	- focus, blor, change
 	
-5. touch(모바일)
-	
+5. touch(모바일)	
 */	
+window.onload = function() {
+	console.log("load -1-");
+}
+
+window.addEventListener("load", function(){
+	console.log("load -2-");
+});
+
+window.addEventListener("load", function(){
+	console.log("load -3-");
+});
+
+window.addEventListener("load", function(){
+	document
+		.querySelector("#header-2")
+		.onclick = function() {
+			console.log("Event Model Lv. 0 - Basic");
+		}
+		
+	document
+		.querySelector("#header-3")
+		.addEventListener("click", function() {
+			console.log("Event Model Lv. 2");
+		});	
+});
 	
 </script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
 	<h2>5. Event 처리</h2>
-	<h3>Event Model Level0 - Inline</h3>
+	<h3 onclick='console.log("Event Model Lv. 0 - inline");''>Event Model Level0 - Inline</h3>
 	<h3 id='header-2'>Event Model Level0 - Basic</h3>
 	<h3 id='header-3'>Event Model Level2</h3>
 </body>
