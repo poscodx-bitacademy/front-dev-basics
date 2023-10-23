@@ -2,7 +2,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
+<script>
+// jQuery는 DOM 엘리멘트를 선택하는 작업을 보통 먼저 하기 때문에
+// DOM 로딩이 완료된 후에 작업 코드를 작성한다.
+
+// 1. DOM이 완료된 시점1: DOM API를 사용
+window.addEventListener('load', function() {
+	var $obj = $('#header');
+	console.log($obj.length);		
+});
+
+// 2. DOM이 완료된 시점2: jQuery를 사용하는 방법1
+$(document).ready(function() {
+	var $obj = $('#header');
+	console.log($obj.length);		
+});
+
+// 3. DOM이 완료된 시점3: jQuery를 사용하는 방법2
+$(function() {
+	var $obj = $('#header');
+	console.log($obj.length);		
+});
+
+
+	
+</script>
 </head>
 <body>
 	<h1 id="header">jQuery 함수로 HTMLElement를 선택하는 시점</h1>
