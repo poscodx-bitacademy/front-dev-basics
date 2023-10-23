@@ -5,7 +5,9 @@
 <script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
 <script>
 $(function(){
-	setTimeout(function(){
+	setTimeout(function() {
+		$('ul li:first-child').css('color', 'red');
+		$('ul li:last-child').css('color', 'blue');
 	}, 1000);
 });
 </script>

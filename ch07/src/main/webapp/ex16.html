@@ -6,6 +6,8 @@
 <script>
 $(function(){
 	setTimeout(function(){
+		$('li:contains("샘플")').css('color', 'red');
+		$('li:has("strong")').css('color', 'blue');
 	}, 1000);
 });
 </script>
