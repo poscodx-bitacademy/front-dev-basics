@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
+<script>
+$(function() {
+	var $obj = $(".par");
+
+	console.log($obj.length);							// 2
+	console.log(typeof($obj), $obj instanceof Array);	// 유사배열
+	console.log($obj[0]);								// HTMLElement 객체 접근 가능
+	console.log($obj.get(0));							// HTMLElement 객체 접근 가능
+	
+	$obj.css('color', 'red');
+	
+	$obj.click(function() {
+		// 이벤트 핸들러에서의 this는 jQuery Object가 아닌 HTMLElement 다.
+		console.log(this);
+		
+		// 만약, 핸들러 안에서 이벤트 대상이 되는 this(HTMLElement)의 css나 dom을
+		// 조작해야 하는 경우.
+		// 다시 jQuery($) 함수의 파라미터로 this를 전달해서 jQuery Object로 wrapping 한다.
+		$(this).css('color', 'blue');
+		
+		// jQuery Object의 거의 모든 API 함수는 호출한 jQuery Object를 다시 반환한다.
+		// 따라서 함수 체인이 가능하다.		
+		$(this)
+			.css('text-decoration', 'underline')
+			.text('클릭');
+	});
+});
+</script>
+</head>
+<body>
+	<h1 id="header">Simple jQuery 만들기3</h1>
+	<p class='par'>문장1</p>
+	<p>문장2</p>
+	<p class='par'>문장3</p>
+	<p>문장4</p>
+</body>
+</html>
+ 

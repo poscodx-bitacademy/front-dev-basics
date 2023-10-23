@@ -2,10 +2,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="jquery/jquery-3.6.0.js"></script>
+<script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
 <script>
 $(function() {
+	
 	var $obj = $(".par");
+	
 	$obj.click(function(){
 		console.log("clicked:" + this);
 	});
@@ -18,10 +20,9 @@ $(function() {
 </head>
 <body>
 	<h1 id="header">Simple jQuery 만들기1</h1>
-	
 	<p class='par'>문장1</p>
 	<p>문장2</p>
-	<p  class='par'>문장3</p>
+	<p class='par'>문장3</p>
 	<p>문장4</p>
 </body>
 </html>

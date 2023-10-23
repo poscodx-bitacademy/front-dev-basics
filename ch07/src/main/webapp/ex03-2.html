@@ -4,8 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="jquery/jquery-simple.js"></script>
 <script>
+console.log(jQuery().jquery);
+	
 $(function(){
 	var $obj = $(".par");
+	
+	console.log(
+		typeof(jQuery),            // jQuery는 function 객체
+		typeof($obj),              // object 타입의 객체를 반환한다.: jQuery 객체 
+		"length:" + $obj.length,   // length 속성이 있다.
+		$obj instanceof Array      // 하지만, 배열은 아니다. : 유사배열
+	);	
+	
 	$obj.click(function(){
 		console.log("clicked:" + this);
 	});
