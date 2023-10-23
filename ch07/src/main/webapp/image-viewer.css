@@ -1,0 +1,10 @@
+@charset 'utf-8';
+
+* {margin:0; padding:0}
+
+.image-viewer { width: 420px; margin:50px auto 0 auto; border:2px solid #14733c;}
+
+.image-viewer .buttons { padding: 10px 0 0 0; text-align: center }
+.image-viewer div { margin:0 auto 10px auto; width:410px; }
+
+.image-viewer div img { display:block; width:400px; margin:0 auto}

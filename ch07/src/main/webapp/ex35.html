@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+/* jquery plug in */
+$(function() {
+	$('h1').flash();
+	$("#btn").click(function(){
+		$(this)
+			.hello()
+			.flash();
+	});
+});  
+</script>
+</head>
+<body>
+	<h1>jQuery Plug In</h1>
+	<div style='width:200px; margin: 50px auto'>
+		<button id='btn' title='click me'>click me</button>
+	</div>
+</body>
+</html>

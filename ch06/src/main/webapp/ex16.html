@@ -3,6 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+/*
+Event Propagation(Event Bubbling)
+
+어떤 엘리먼트에 특정 이벤트가 발생했을 때, 그 이벤트가 상위/하위 엘리멘트로 전파되어 가는 것
+<= IE8: outer-div > inner-div > header > text
+표준 브라우저: outer-div < inner-div < header < text
+*/	
+window.addEventListener('load', function() {
+	document
+		.getElementById('outer-div')
+		.addEventListener('click', function(){
+			console.log('outer-div');
+		});
+
+	document
+		.getElementById('inner-div')
+		.addEventListener('click', function(event) {
+			var event = event || window.event;  // <= IE8 크로스브라우징
+			
+			// stop propagation(bubbling)
+			event.cancelBubbling = true;       // <= IE8 크로스브라우징
+			event?.stopPropagation();
+			
+			console.log('inner-div');
+		});
+
+	document
+		.getElementById('header')
+		.addEventListener('click', function(){
+			console.log('header');
+		});
+
+	document
+		.getElementById('text')
+		.addEventListener('click', function(){
+			console.log('text');
+		});		
+});
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>

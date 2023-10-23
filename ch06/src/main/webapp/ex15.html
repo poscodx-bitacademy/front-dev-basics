@@ -3,6 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+/*
+기본 이벤트 동작 막기
+1. anchor: spa 애플리케이션에서 버튼이나 메뉴로 사용될 때
+2. form: validation, ajax 방식으로 submit 
+*/
+window.addEventListener('load', function() {
+	document
+		.getElementById('form-login')
+		.addEventListener('submit', function(event){
+			event.preventDefault();
+			
+			var inputEmail = document.getElementById('input-email');
+			if(inputEmail.value === '') {
+				alert('이메일이 비어 있습니다.');
+				inputEmail.focus();
+				return;
+			}
+
+			var inputPassword = document.getElementById('input-password');
+			if(inputPassword.value === '') {
+				alert('비밀번호가 비어 있습니다.');
+				inputPassword.focus();
+				return;
+			}
+			
+			this.submit();			
+		});
+});		
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
