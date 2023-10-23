@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>sample1</title>
+<link href='image-viewer.css' type='text/css' rel="stylesheet"/>
+<script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+var images = [ 
+	"국화:Chrysanthemum.jpg", 
+	"사막:Desert.jpg", 
+	"수국:Hydrangeas.jpg", 
+	"해파리:Jellyfish.jpg", 
+	"코알라:Koala.jpg", 
+	"등대:Lighthouse.jpg", 
+	"펭귄:Penguins.jpg", 
+	"툴립:Tulips.jpg"
+];
+
+var changeImage = function() {
+	// 랜덤 변수 
+	var index = Math.floor(Math.random() * images.length);
+	var info = images[index].split(":");
+	console.log(info);
+}
+
+$(function(){
+	
+	$("button").click(function(){
+		changeImage();
+	});
+	
+});
+</script>
+</head>
+<body>
+	<div class="image-viewer">
+		<div class="buttons">
+			<button id="btn-change">이미지변경</button>
+			<button id="btn-slideshow">슬라이드쇼 시작</button>
+		</div>
+		<div>
+			<img src="/ch07/images/Desert.jpg" alt="사막", title="사막"/>
+		</div>
+	</div>
+</body>
+</html>

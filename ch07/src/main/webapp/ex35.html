@@ -4,15 +4,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="./jquery/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-/* jquery plug in */
 $(function() {
-	$('h1').flash();
+	$('h1').hello();
+	
 	$("#btn").click(function(){
-		$(this)
-			.hello()
-			.flash();
+		$(this).flash();
 	});
-});  
+});
+
+/* jquery plug in */
+$.fn.hello = function() {
+	console.log('hello world', this.length);
+	return this;
+}
+
+$.fn.flash = function() {
+	var _this = this;
+	var isBlink = false;
+	
+	setInterval(function() {
+		_this.css('background-color', isBlink ? '#f00' : '#fff');
+		isBlink = !isBlink;	
+	}, 500);
+}  
 </script>
 </head>
 <body>

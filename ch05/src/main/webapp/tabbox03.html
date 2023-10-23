@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>리스트를 이용한 메뉴 만들기</title>
+<link rel="stylesheet" type="text/css" href="/ch05/css/tabbox.css"></link>
+<script src='https://code.jquery.com/jquery-3.7.1.min.js'></script>
+<script>
+$(function(){
+	$(".tab-box li").click(function(){
+		$('.tab-box li.selected').removeClass('selected');
+		$(this).addClass('selected');
+	});
+});	
+</script>
+</head>
+<body>
+<div class="tab-box">
+	<ul>
+        <li>메뉴 1</li>
+        <li>메뉴 2</li>
+        <li>메뉴 3</li>
+        <li>메뉴 4</li>
+        <li>메뉴 5</li>
+    </ul>
+    <div>
+    	탭뷰입니다.
+    </div>
+</div>    
+</body>
+</html>
