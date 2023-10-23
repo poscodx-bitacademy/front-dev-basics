@@ -3,6 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+var registerEventHandler = function(el, eventName, eventHandler) {
+	// IE8 <= 8
+	// attachEvent
+	el &&
+	el.attachEvent &&
+	el.attachEvent(eventName, eventHandler);
+	// el && el?.attachEvent(eventName, eventHandler);
+	  
+	// 표준 브라우저
+	// addEventListener	
+	el &&
+	el.addEventListener &&
+	el.addEventListener(eventName, eventHandler);
+	// el && el?.addEventListener(eventName, eventHandler);
+}
+
+var clickEventHandler = function() {
+	console.log('click');
+}
+
+window.addEventListener("load", function(){
+	var el = document.getElementById("header");
+	
+	// cross-browsing event register
+	registerEventHandler(el, 'click', clickEventHandler);
+	
+	// 제거
+	el.removeEventListener('click', clickEventHandler);
+});	
+</script>
 </head>
 <body>
 	<h1>DOM(Document Object Model)</h1>
