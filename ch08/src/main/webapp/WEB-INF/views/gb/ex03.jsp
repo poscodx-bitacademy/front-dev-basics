@@ -11,10 +11,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/jquery/jquery-3.7.1.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-
-// 무한 스크롤 처리는 scroll.jsp 참고
-// api url /api/guestbook?sno=0: sno보다 작은 no의 역순 row를 top-k(limit 0, k)
-		
 var render = function(vo, mode) {
 	var html = 
 		"<li data-no='" + vo.no + "'>" +
@@ -46,8 +42,41 @@ var fetch = function() {
 
 
 $(function(){
-	$(window).scroll(function(){
-		// 조건(스크롤바가 바닥에 도착)이 되면 fetch() 호출
+	var dialogDelete = $("#dialog-delete-form").dialog({
+		autoOpen: false,
+		model: true,
+		buttons: {
+			"삭제": function() {
+				var no = $('#hidden-no').val();
+				var password = $('#password-delete').val();
+				
+				console.log("ajax 삭제~~", no, password);
+				
+				// 후처리
+				// 1. response.data(no) 가지고 있는 <li data+no='{no}' > 찾아서 삭제
+				// 2. dialogDelete.dialog('close');
+				
+				// 폼의 input value reset;
+			},
+			"취소": function() {
+				$(this).dialog('close');
+			}
+		},
+		close: function() {
+			console.log("다이알로그 close!!!!!");
+		}
+	
+	});
+	
+	
+	
+	// 메세지 삭제 버튼 click 이벤트 처리(Live Event)
+	$(document).on('click', '#list-guestbook li a', function(event) {
+		event.preventDefault();
+
+		var no = $(this).data('no');
+		$('#hidden-no').val(no);
+		dialogDelete.dialog('open');
 	})
 	
 	// 최초 리스트 가져오기
@@ -75,7 +104,6 @@ $(function(){
   				<form>
  					<input type="password" id="password-delete" value="" class="text ui-widget-content ui-corner-all">
 					<input type="hidden" id="hidden-no" value="">
-					<input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
   				</form>
 			</div>
 			<div id="dialog-message" title="" style="display:none">

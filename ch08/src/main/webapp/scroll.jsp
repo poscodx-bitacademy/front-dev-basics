@@ -11,44 +11,21 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/jquery/jquery-3.7.1.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-var render = function(vo, mode) {
-	var html = 
-		"<li data-no='" + vo.no + "'>" +
-		"<strong>" + vo.name + "</strong>" +
-		"<p>" + vo.contents + "</p>" +
-		"<strong></strong>" +
-		"<a href='#' data-no='" + vo.no + "'>삭제</a>" +
-	    "</li>"
-		    
-	$("#list-guestbook")[mode ? 'prepend' : 'append'](html);
-}
-
 $(function(){
-	$('#add-form').submit(function(event) {
-		event.preventDefault();
+	$(window).scroll(function(){
+		var $window = $(this);
+		var $document = $(document);
 		
-		var vo = {};
-		vo.name = $("#input-name").val();
-		vo.password = '1234';
-		vo.contents = '안녕!';
+		var wh = $window.height();
+		var dh = $document.height();
+		var st = $window.scrollTop();
 		
-		$.ajax({
-			url: '/ch08/api/guestbook',
-			type: 'post',
-			dataType: 'json',
-			contentType: 'application/json',
-			data: JSON.stringify(vo),
-			success: function(response) {
-				if(response.result === 'fail') {
-					console.error(response.message);
-					return;
-				}
-				
-				render(response.data, true);
-			}
-		})
-	});
+		if(dh < wh + st + 10) {
+			console.log("fetch!!!");
+		}
+	})
 });
+
 </script>
 </head>
 <body>
@@ -93,7 +70,65 @@ $(function(){
 						<strong></strong>
 						<a href='' data-no=''>삭제</a> 
 					</li>
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>
 					
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>
+					
+					
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>
+					
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>
+
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>																														
 									
 				</ul>
 			</div>
