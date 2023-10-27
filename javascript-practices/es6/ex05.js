@@ -47,4 +47,17 @@ console.log("\n--------");
     }
 });
 
+// ex4: - this를 어휘적으로 바인딩(Lexical bind)
+console.log("\n--------");
+const dooly = {
+    name: '둘리',
+    friends: ['또치', '마이콜', '도우너'],
+    printFriends: function() {
+        // this: dooly
+        this.friends.forEach(friend => console.log(`${this.name}의 친구 ${friend}`));            
+    }
+};
+
+dooly.printFriends();
+
 
